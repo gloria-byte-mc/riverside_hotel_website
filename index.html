@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Homepage</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+      header{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        font-family: cursive;
+        font-size: larger;
+        height:200px;
+        background-color: rgb(128, 148, 148);
+        
+      }
+     
+      
+      section{
+        background-color:white;
+        height:600px;
+        width:100%;
+        
+      }
+      article{
+        background-color: rgb(110, 129, 143);
+      }
+      .flex-container{
+        float:left;
+        padding:0 6px;
+        margin-bottom: 30px;
+
+       
+       
+      
+      }
+      
+      .header-text{
+        position:absolute;
+        top:10px;
+        left:40%;
+        font-size: 60px;
+        text-align: center;
+        text-shadow:(2px 2px 2px #9b9bf1);
+      }
+      
+      
+      ul {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+     overflow: visible;/* Allow dropdown to overflow */
+     display:flex;
+     flex-direction:row;
+     flex-wrap:wrap; /* Allow dropdowns to go below items */
+     border:8px solid black;
+     border-left:none;
+     border-right:none;
+     background-color: hsl(186, 15%, 76%);
+      }
+
+     
+      li{
+        position: relative;
+        float:left;
+        border-right: 1px solid black;
+      }
+      li a{
+       display:block;
+       padding:8px;
+       text-align: center;
+       text-decoration: none;
+       color:white;
+       
+      }
+
+      li a:hover{
+        background-color: #ddd;
+      }
+      .active{
+        background-color:#ddd; 
+      }
+      .hover-link:hover{color: aliceblue;}
+
+        img{
+        height:200px;
+        width: 500px;
+        margin-left:10px;
+        overflow-x:scroll;
+        z-index:1;
+      }
+     /* Dropdown container */
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%; /* Show below the menu item */
+        left: 0;
+        background-color: #444;
+        min-width: 160px;
+        z-index: 1;
+      }
+
+      /* Dropdown links */
+      .dropdown-content a {
+        color: white;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #666;
+      }
+
+      /* Show dropdown on hover */
+      li.dropdown:hover .dropdown-content {
+        display: block;
+      } 
+      
+      section {
+        background-color: grey;
+        height: 400px;
+        width: 100%;
+        overflow:hidden;
+        position:relative;
+      }
+
+      article {
+        background-color: rgb(110, 129, 143);
+      }
+    section {
+      background-image:url('myimages/nikola-kojevic-QikirGQYgNM-unsplash.jpg');
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      height: 600px;
+      width: 100%;
+      color:#f3eeee;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-sizing: border-box;
+      position: relative;
+      animation: changeBackground 50s steps(4) infinite;
+    }
+/*
+    @keyframes changeBackground {
+  0% {
+    background-image: url('nikola-kojevic-QikirGQYgNM-unsplash.jpg');
+  }
+  25% {
+    background-image: url('Daily Dose of Inspiration_ Quotes, Cars, Anime, Nature & More!.jpeg');
+  }
+  50% {
+    background-image: url('Beautiful Japan Scene 🌸⛩️🇯🇵.jpeg');
+  }
+  75% {
+    background-image: url('eiliv-aceron-2LzqR50_NTw-unsplash.jpg');
+  }
+  100% {
+    background-image: url('nikola-kojevic-QikirGQYgNM-unsplash.jpg'); /* Loop back to the first */
+ /*}
+} */
+
+.image-text-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  gap: 30px; /* spacing between image and text */
+  background-color:#ddd;
+  
+ 
+}
+
+.image-text-container img {
+  height: 300px;
+  width: 500px;
+  object-fit: cover;
+  border-radius: 0px;
+  float:left;
+  margin-right:35px;
+  transition:transform 0.1s ease;
+  
+}
+.image-text-container img:hover{
+   transform: scale(1.1);
+}
+ .text-container{
+  padding-top: 30px;
+
+
+ }
+.desc{
+  padding:15px;
+  text-align:center;
+  font-size: larger;
+}
+div.gallery{
+  border:1px solid black;
+}
+div.gallery img{
+ height:200px;
+ width:400px;
+ transition:transform 0.1s ease;
+}
+
+div.gallery img:hover{
+transform: scale(1.1);
+}
+
+.button{
+  text-align: center;
+  align-items: center;
+}
+button{
+  background-color: rgb(110, 129, 143);
+  border:none;
+  border-radius: 6px;
+  width:165px;
+  padding-top:18px;
+  margin-top:10px;
+  padding-bottom:18px;
+}
+
+button:hover{
+  background-color:rgb(122, 130, 135) ;
+}
+
+.another-container{
+ border:2px solid black;
+ margin-top:20px;
+ 
+}
+
+.ocean-container{
+  margin-top:20px;
+  display:flex;
+  float:left;
+  width:100%;
+  height:300px;
+  flex-wrap:nowrap;
+  overflow-x:auto;
+  white-space:nowrap;
+  box-sizing: border-box;
+  background-color:rgb(215, 212, 212);
+  
+}
+
+.ocean-container img{
+  float:left;
+  width:250px;
+  height:250px;
+  margin-right:20px;
+  flex:0 0 auto;
+  margin-top: 20px;
+  transition: transform 0.1s ease;
+  
+}
+.ocean-container img:hover{
+  transform: scale(1.1);
+
+}
+
+.my-container{ 
+  background-color: white;
+}
+
+#map{
+    height: 500px;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    
+};
+
+.a-container{
+display: flex;  
+float:left;
+padding:0 6px;
+background-color:rgb(122, 130, 135);
+height:800px;
+width:100%;
+}
+.a-container img{
+transition: transform 0.1s ease;
+}
+
+.word{
+  color:black;
+  padding-left:40px;
+  padding-bottom: 20px;
+}
+
+.link{
+  text-align:center;
+  
+}
+.a-container img:hover{
+   transform: scale(1.1);
+}
+
+.footer{
+  background-color:rgb(122, 130, 135);
+  height: 600px;
+  margin-top:30px;
+  text-align: center;
+}
+footer img{
+  display: block;
+  margin:0 auto;
+ 
+}
+ .container {
+      display: flex;
+      justify-content: space-between;
+    }
+    .column {
+      flex: 1;
+      padding: 10px;
+     
+    }
+    .column p{
+      margin:0;
+      text-align: left;
+      padding-left: 40px;
+    }
+    .column a{
+      color:black;
+
+    }
+     .column a:hover{
+      color: #ddd;
+    }
+
+   select{
+    width:180px;
+    height:40px;
+    border:1.5px solid black;
+   }
+  </style>
+  </head>
+  <body>
+    <header>
+      
+      <img src="C:\Users\hp\Downloads\ChatGPT Image Apr 27, 2025, 12_29_18 PM.png" alt="hotel logo">
+    </header>
+    <ul>
+     <li class="active" ><a href="main-page.html">Home</a></li>
+
+     <li class="dropdown">
+    <a href="sign-up.html" class="dropbtn">Menu</a>
+    <div class="dropdown-content">
+      <a href="about-us.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="sign-in.html">Sign In</a>
+    </div>
+  </li>
+     
+
+     <li><a href="contact-page.html">Contact</a></li>
+    </ul>
+    <section>
+
+    
+      
+  
+    </section>
+    
+    <div class="image-text-container">
+      <img src="myimages/timothy-k-wSd5xRMFRBM-unsplash.jpg" alt="Scenic View">
+      
+        <h2 style="padding-right:20px;">Relax in Comfort</h2>
+        <p style="padding-right:20px;">Discover serene views, luxurious rooms, and top-class amenities in the heart of nature. Our hotel offers the perfect escape from daily life.</p>
+      
+    </div>
+    
+   
+    <div class="text-container">
+      <h1 style=" color:black; text-align: center; padding-top:40px; padding-bottom:15px;">FEATURED OFFERS</h1>
+      <p style="color: rgb(110, 129, 143); text-align:center;  padding-top:20px; font-size:larger;"> Click on the offer for more information</p>
+    </div>
+
+    <div class="flex-container">
+    <div class="gallery">
+      <img src="C:\Users\hp\Downloads\sandip-roy-jEx-gDIB0CI-unsplash.jpg" alt="image" style="margin-left:0px;" >
+      <div class="desc">The Royal Suite</div>
+      <a href="about-page1.html"  style="color: rgb(110, 129, 143); text-align:center; text-decoration:underline; align-items:center; margin-left:150px;" >LEARN MORE</a>
+      <div class="button">
+        <a href="booking-page.html">
+        <button id="bt3">BOOK NOW</button>
+        </a>
+      </div>
+      </div>
+      </div>
+      <div class="flex-container">
+        <div class="gallery">
+      <img src="C:\Users\hp\Downloads\antonio-araujo-mbOoyHwNsWU-unsplash.jpg" alt="image" style="margin-left:0px;"> 
+      
+       <div class="desc">The Honeymoon Suite</div>
+      <a href="learn-more1.html"  style="color: rgb(110, 129, 143); text-align:center; text-decoration:underline; align-items:center; margin-left:150px;" >LEARN MORE</a>
+      <div class="button">
+        <a href="booking-page.html">
+        <button  id="bt3">BOOK NOW</button>
+        </a>
+      </div>
+        </div>
+      </div>
+      <div class="flex-container">
+        <div class="gallery">
+          <img src="C:\Users\hp\Downloads\datingscout-KFDuhyW5H5w-unsplash.jpg" alt="image"  style="margin-left:0px;">
+          <div class="desc">The Family Suite</div>
+          <a href="learn-more2.html"  style="color: rgb(110, 129, 143); text-align:center; text-decoration:underline; align-items:center; margin-left:150px;" >LEARN MORE</a>
+          <div class="button">  
+            <a href="booking-page.html">
+            <button  id="bt3">BOOK NOW</button>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="link">
+<a href="view-more.html"  style="font-size: large; color:rgb(110, 129, 143); ">View All Offers</a>
+      </div>
+
+<div class="another-container;">
+ <p style="text-align: center; padding-top: 25px; padding-bottom:30px; color:black; font-size:x-large">Get to explore our amazing beaches and sceneries.</p>
+</div>
+
+<div class="ocean-container">
+  <img src="myimages/pexels-jess-vide-5008186.jpg" alt="image" style="margin-left:0px;">
+  <img src="myimages/pexels-30nudos-adicora-164429726-11458137.jpg" alt="image">
+  <img src="myimages/pexels-bradikan-28668589.jpg" alt="image">
+  <img src="myimages/miguel-a-amutio-hkxaef3RGbQ-unsplash.jpg" alt="image">
+  <img src="myimages/robyn-budlender-idoySayYPaI-unsplash.jpg" alt="image">
+  <img src="myimages/alexander-schimmeck-OPB4X3n0-O0-unsplash.jpg" alt="image">
+</div><br>
+
+<div class="my-container">  
+<h1 style="color:black; text-align: center; ">Unique Experiences</h1>
+<h1 style="color:rgb(110, 129, 143); text-align: center; margin-bottom: 70px; font-size:x-large;">Tailored Just For You</h1>
+ </div>
+
+ <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([0.0236, 37.9062], 6); // Coordinates of Kenya
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+  </script>
+
+  <div class="a-container" style="background-color: rgb(215, 212, 212);">
+    <h1 style="margin-left:40px;">Sustainability</h1>
+    <div class="pictures">
+     <img src="myimages/kelvin-zyteng-nFA7gRHVZd8-unsplash.jpg" alt="image" height="500px;" width="500px;" style="margin-bottom: 30px; margin-right: 20px; margin-left:40px; margin-top:20px;">
+    
+<div class="word">
+  Riverside Hotel proudly partnered with the Behbud Association to host a memorable fundraising event under the banner of cultural diplomacy.<br>
+  Riverside Hotel Africa was recognized for their remarkable efforts in sustainability at the 17th Annual Eco Warrior Awards Gala Dinner Ceremony in Nairobi on Thursday, October 17, 2024. The glamorous fete was held at Emara Ole Sereni Hotel.
+</div>
+</div >
+ <a href="sustainability.html" style="padding-left:40px; height:600px; color:blue; font-size:small; margin-bottom: 30px; padding-bottom: 30px;">LEARN MORE</a>
+  </div>
+<br><br>
+  <h1 style="text-align: center;">Riverside Social Moments </h1>
+  <h2 style="text-align: center; color:rgb(110, 129, 143);">NAIROBI #RIVERSIDEHOTELNAIROBI &nbsp;&nbsp;&nbsp;
+    MOMBASA #RIVERSIDEHOTELMOMBASA</h2>
+    <div style="text-align: center;">
+   <a href="social.html" style=" color:black; font-size: medium;">SOCIAL WALL</a>
+    </div>
+    <div class="footer">
+    <img src="C:\Users\hp\Downloads\ChatGPT Image Apr 27, 2025, 12_29_18 PM.png" alt="hotel logo" 
+   >
+
+   <div class="container">
+    <div class="column">
+      <h1>Contact Details</h1>
+      <h2>Nairobi</h2>
+<p>Serena Regional Support Centre</p>
+<p style="text-align: left; padding-left: 40px;">George Williamson House</p>
+<p>4th Floor, 4th Ngong Avenue</p>
+<p>P.O. BOX 48690 – 00100</p>
+<p>Nairobi, Kenya</p>
+<a href="contact-page.html">
+<p>T: +254732123333</p>
+</a>
+
+<a href="contact-page.html">
+<p>T: +254709998333</p>
+</a>
+
+<a href="contact-page.html">
+<p>F: +254202842333</p>
+</a>
+<p>E: <a href="contact-page.html">marketing.kenya@serenahotels.com </p></a>
+      
+    </div>
+
+    <div class="column">
+      <br><br><br>
+      <h2 style="padding-top: 3px;">Mombasa</h2>
+     <p style="padding-top: 3px;"> Tourism Promotion Services Pakistan</p>
+     <p>Islamabad Riverside Hotel</p>
+     <p>Khayaban-e-Suharwardy, G-5/1</p>
+     <p>Islamabad, Pakistan</p>
+     <a href="contact-page.html">
+     <p>T: +92512874000</p>
+     </a>
+
+     <a href="contact-page.html">
+     <p>T: +9251111133133</p>
+     </a>
+
+     <a href="contact-page.html">
+     <p>F: +92512871006</p>
+     </a>
+
+     <a href="contact-page.html">
+     <p>E: sales@serena.com.pk</p>
+     </a>
+    </div>
+
+    <div class="column">
+      
+      <h1>Riverside Hotel</h1>
+      <a href="sustainability.html" style="text-decoration: none;">
+      <p>sustainability</p>
+      </a>
+      <a href="contact-page.html" style="text-decoration: none;">
+      <p>prestige club</p>
+      </a>
+      <a href="contact-page.html" style="text-decoration: none;">
+      <p>About Us</p>
+      </a>
+      <a href="contact-page.html" style="text-decoration: none;">
+      <p>Social Wall</p>
+      </a>
+      <a href="contact-page.html" style="text-decoration: none;">
+      <p>Travel Agents</p>
+      </a>
+      <a href="contact-page.html" style="text-decoration: none;">
+      <p>press center</p>
+      </a>
+      <a href="contact-page.html" style="text-decoration: none;">
+      <p>Contact us / E-Concierge</p>
+      </a>
+      <a href="contact-page.html" style="text-decoration: none;">
+      <p>Blog</p>
+      </a>
+      <a href="contact-page.html" style="text-decoration: none;">
+      <p>Careers</p>
+      </a>
+      
+      
+    </div>
+
+    <div class="column">
+      <h1>Suscribe to Our Newsletter</h1>
+      <select id="county" name="county">
+        <option value="Nairobi">Nairobi</option>
+        <option value="Mombasa">Mombasa</option>
+        <option value="Malindi">Malindi</option>
+      </select>
+    </div>
+   </div>
+
+
+   
+    </div>
+    
+  </body>
+</html

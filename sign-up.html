@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<HTML lang="en">
+  <head>
+    <title>Sign Up</title>
+    <meta charset="UTF-8";
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body{
+        background-color: grey;
+      }
+
+      .flex-container{
+        background-color:black;
+        text-align:center;
+        width:30%;
+        margin:auto;
+        margin-top: 60px;
+        padding:20px;
+        border-radius: 5px;
+        border:2px solid black;
+        box-shadow:0px 0px 10px black;
+        display:flex;
+        flex-direction: column;
+        gap:4px;
+        
+      }
+
+      
+      input{
+        
+        width: 200px;
+        padding:8px;
+        border-radius: 4px;
+        border:1px solid black;
+
+      }
+      h1{
+
+        text-align: center;
+        font-size: larger;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color:white;
+      }
+      button{
+        text-align: center;
+        margin-top:5px;
+        padding:5px;
+        color:white;
+        border:none;
+        border-radius: 6px;
+      }
+      p{
+        text-align: center;
+        color:white;
+       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: larger;
+      }
+      ul {
+     list-style-type: none;
+     margin: 0;
+     padding: 0;
+     overflow: hidden;
+     border:8px solid black;
+     border-left:none;
+     border-right:none;
+     background-color:  hsl(186, 15%, 76%);
+     
+      }
+    
+      li{
+        float:left;
+        border-right: 1px solid black;
+    
+      }
+      li a{
+       display:block;
+       padding:8px;
+       text-decoration: none;
+       
+      }
+      .is-signed{
+        background-color: grey !important;
+        color:black;
+      }
+      
+    </style>
+    </head>
+
+   
+    <body>
+
+      <ul>
+        <li class="active"><a href="index.html" style="color:aliceblue;">Home</a></li>
+      </ul>
+<div class="flex-container">
+<h1>Sign Up</h1>
+<form action="connect.php" method="post">
+  <label for="username" style="color:white;">Username</label><br>
+  <input type="text" id="username" name="username" ><br>
+  <label for="email" style="color:white;">Email</label><br>
+  <input type="text" id="email" name="email" ><br>
+  <labe for="password" style="color:white;">Password</label><br>
+    <input type="password" id="password" name="password"><br>
+
+<button type="button" onclick="function1()" style="background-color: green; width:150px;" id="bt2">Sign Up</button>
+<p>Already have an account.</p>
+</form> 
+</div>
+
+<script>
+function function1(){
+  const button = document.getElementById("bt2");
+  if(button.innerHTML === "Sign Up"){
+    button.innerHTML = "Signed";
+    button.classList.add('is-signed');
+  }else{
+    button.innerHTML = "Sign Up";
+    button.classList.remove('is-signed');
+  }
+}
+
+
+</script>
+
+    </body>
+</HTML>
